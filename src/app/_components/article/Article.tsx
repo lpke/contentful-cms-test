@@ -1,7 +1,17 @@
 import ImgHolder from '@/components/ImgHolder';
 import LinkText from '@/components/LinkText';
 import { ArticleData } from '@/types/article';
-import { formatDate } from '@/utils/date';
+import { BLOCKS } from '@contentful/rich-text-types';
+import {
+  documentToReactComponents,
+  type Options as RichTextOptions,
+} from '@contentful/rich-text-react-renderer';
+
+const contentOptions: RichTextOptions = {
+  renderNode: {
+    [BLOCKS.PARAGRAPH]: (node, children) => <p className="mb-3">{children}</p>,
+  },
+};
 
 export default async function Article({ ...article }: ArticleData) {
   return (
@@ -27,10 +37,7 @@ export default async function Article({ ...article }: ArticleData) {
         </div>
       </div>
 
-      {/* <PortableText */}
-      {/*   value={article?.content || []} */}
-      {/*   components={contentComponents} */}
-      {/* /> */}
+      {documentToReactComponents(article.content.json, contentOptions)}
     </div>
   );
 }

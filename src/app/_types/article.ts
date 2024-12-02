@@ -10,6 +10,6 @@ export type ArticleData = {
   };
   alt: string;
   content: {
-    json: {};
+    json: any;
   };
 };
