@@ -1,13 +1,14 @@
 import ArticlePreview from '@/components/article/ArticlePreview';
+import { getAllArticles } from '@/utils/contentful/api';
 
 export default async function ArticleList() {
-  // TODO: fetch articles here
+  const articles = await getAllArticles();
 
   return (
     <>
-      {/* {articles.map((article) => ( */}
-      {/*   <ArticlePreview key={article._id} {...article} /> */}
-      {/* ))} */}
+      {articles.map((article) => (
+        <ArticlePreview key={article.sys.id} {...article} />
+      ))}
     </>
   );
 }

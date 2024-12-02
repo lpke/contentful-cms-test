@@ -1,21 +1,9 @@
 import ImgHolder from '@/components/ImgHolder';
 import LinkText from '@/components/LinkText';
+import { ArticleData } from '@/types/article';
 import { formatDate } from '@/utils/date';
 
-export default async function Article() {
-  // TEMP
-  const article = {
-    _createdAt: '01-01-2024',
-    _updatedAt: '02-01-2024',
-    heading: 'dummy',
-    subheading: 'subheading',
-    image: {
-      url: '',
-      alt: 'alt',
-    },
-    content: 'content'
-  };
-
+export default async function Article({ ...article }: ArticleData) {
   return (
     <div>
       <LinkText href="/" className="mb-3 mt-[-0.5rem] block">
@@ -24,7 +12,7 @@ export default async function Article() {
 
       <ImgHolder
         src={article.image.url}
-        alt={article.image?.alt}
+        alt={article.alt}
         width="100%"
         height={300}
         className="mb-6"
@@ -41,20 +29,23 @@ export default async function Article() {
         <div className="mt-6 flex-shrink-0 text-[0.9rem] sm:ml-6 sm:mt-0 sm:text-right">
           <p>
             <span className="font-medium text-gray-800">created:</span>{' '}
-            <span className="text-gray-500">
-              {formatDate(article._createdAt)}
-            </span>
+            {/* <span className="text-gray-500"> */}
+            {/*   {formatDate(article._createdAt)} */}
+            {/* </span> */}
           </p>
           <p>
             <span className="font-medium text-gray-800">updated:</span>{' '}
-            <span className="text-gray-500">
-              {formatDate(article._updatedAt)}
-            </span>
+            {/* <span className="text-gray-500"> */}
+            {/*   {formatDate(article._updatedAt)} */}
+            {/* </span> */}
           </p>
         </div>
       </div>
 
-      {article.content}
+      {/* <PortableText */}
+      {/*   value={article?.content || []} */}
+      {/*   components={contentComponents} */}
+      {/* /> */}
     </div>
   );
 }
