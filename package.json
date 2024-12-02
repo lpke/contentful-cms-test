@@ -1,8 +1,8 @@
 {
-  "name": "next-base",
-  "version": "1.1.0",
-  "description": "A Sensible, Clean NextJS Base",
-  "repository": "github:lpke/next-base",
+  "name": "contentful-cms-test",
+  "version": "1.0.0",
+  "description": "Next.js + Contentful CMS Demo",
+  "repository": "github:lpke/contentful-cms-test",
   "author": "Luke Perich <luke@lpdev.io> (https://lpdev.io)",
   "license": "UNLICENSED",
   "private": true,
